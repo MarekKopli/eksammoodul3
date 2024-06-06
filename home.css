@@ -145,7 +145,7 @@ header nav ul li a {
 }
 
 .member img {
-    max-width: 150px; /* Ensure image does not overflow */
+    max-width: 150px; 
     height: auto;
     border-radius: 50%;
     object-fit: cover;
@@ -159,9 +159,9 @@ header nav ul li a {
 }
 
 .product-carousel {
-    margin: 0 auto; /* Align the carousel center */
-    max-width: 1500px; /* Set a max-width for the carousel */
-    padding: 0 20px; /* Add some padding */
+    margin: 0 auto;
+    max-width: 1500px; 
+    padding: 0 20px; 
 }
 
 .products {
@@ -179,20 +179,20 @@ header nav ul li a {
 
 .product img {
     max-width: 100%;
-    max-height: 200px; /* Ensure image does not overflow */
+    max-height: 200px;
     height: auto;
     object-fit: cover;
 }
 
 .product a {
-    color: white; /* Set the color to white */
-    text-decoration: none; /* Remove underline */
+    color: white;
+    text-decoration: none; 
 }
 
 .product p {
     justify-content: center;
-    color: white; /* Set the color to white */
-    margin: 5px 0; /* Add some margin for spacing */
+    color: white; 
+    margin: 5px 0;
 }
 
 .results {
@@ -238,50 +238,50 @@ header nav ul li a {
     text-align: right;
 }
 
-/* Style for the date */
+
 .result .date {
-    flex: none; /* Prevent the date from taking up extra space */
-    width: 100px; /* Set a fixed width */
-    text-align: center; /* Center the text */
-    color: #aaa; /* Different color to distinguish the date */
+    flex: none; 
+    width: 100px; 
+    text-align: center;
+    color: #aaa;
 }
 
 .result-status {
-    flex: none; /* Prevent the status from taking up extra space */
-    width: 50px; /* Set a fixed width */
-    text-align: center; /* Center the text */
-    padding: 5px 10px; /* Add padding for better visual appearance */
+    flex: none; 
+    width: 50px; 
+    text-align: center;
+    padding: 5px 10px; 
     margin-right: 10%;
 }
 
 .result-status.win {
-    background-color: #28a745; /* Green for win */
+    background-color: #28a745;
     color: #fff;
 }
 
 .result-status.loss {
-    background-color: #dc3545; /* Red for loss */
+    background-color: #dc3545; 
     color: #fff;
 }
 
 @media screen and (max-width: 768px) {
     .results {
-        padding: 10px 0; /* Reduce padding for smaller screens */
+        padding: 10px 0; 
     }
     
     .results h2 {
-        font-size: 1.5em; /* Reduce font size for smaller screens */
-        margin-bottom: 10px; /* Reduce margin for smaller screens */
+        font-size: 1.5em; 
+        margin-bottom: 10px; 
     }
     
     .result {
-        padding: 5px 10px; /* Reduce padding for smaller screens */
-        width: 90%; /* Adjust width for smaller screens */
-        max-width: none; /* Remove max-width for smaller screens */
+        padding: 5px 10px;
+        width: 90%; 
+        max-width: none; 
     }
     
     .result p, .result-status {
-        font-size: smaller; /* Reduce font size for smaller screens */
+        font-size: smaller; 
     }
 }
 
