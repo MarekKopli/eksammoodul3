@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undead Alphas Store</title>
+    <link rel="stylesheet" href="store.css">
+</head>
+<body class="store">
+    <header>
+        <div class="logo">
+            <img src="images/logo2.png" alt="Undead Alphas Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="undeadalphas.html">Home</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <br>
+        <div class="store-controls">
+            <div class="dropdown">
+                <button id="filters-button">Filters</button>
+                <div class="dropdown-content" id="filters-dropdown">
+                    <a href="#" id="sort-low-to-high">Price: Low to High</a>
+                    <a href="#" id="sort-high-to-low">Price: High to Low</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button id="categories-button">Categories</button>
+                <div class="dropdown-content" id="categories-dropdown">
+                    <a href="#" id="category-all">All</a>
+                    <a href="#" id="category-gaming">Gaming</a>
+                    <a href="#" id="category-clothing">Clothing</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <section class="products">
+            <a href="product.html">
+                <article class="product" data-category="clothing">
+                    <img src="images/baseball-cap-mockup.png" alt="Product 1">
+                    <h2>Undead Alphas Cap</h2>
+                    <p>Price: $25.00</p>
+                </article>
+            </a>
+            <a href="product2.html">
+                <article class="product" data-category="gaming">
+                    <img src="images/Free_Mousepad_Mockup_1.png" alt="Product 2">
+                    <h2>Mousepad with Black Logo</h2>
+                    <p>Price: $14.99</p>
+                </article>
+            </a>
+            <a href="product3.html">
+                <article class="product" data-category="gaming">
+                    <img src="images/Free_Mousepad_Mockup_2.png" alt="Product 3">
+                    <h2>Mousepad with Red Logo</h2>
+                    <p>Price: $15.00</p>
+                </article>
+            </a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <nav>
+                <p><a href="undeadalphas.html" style="color: white;">Home</a></p>
+                <p><a href="store.html" style="color: white;">Store</a></p>
+                <p><a href="contact.html" style="color: white;">Contact</a></p>
+            </nav>
+            <div class="logo">
+                <img src="images/logo2.png" alt="Logo">
+            </div>
+            <nav>
+                <p>undeadalphas@gmail.com</p>
+                <p>+372902112</p>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("filters-button").addEventListener("click", function() {
+            document.getElementById("filters-dropdown").classList.toggle("active");
+        });
+
+        document.getElementById("sort-low-to-high").addEventListener("click", function() {
+            sortProducts("low-to-high");
+        });
+
+        document.getElementById("sort-high-to-low").addEventListener("click", function() {
+            sortProducts("high-to-low");
+        });
+
+        document.getElementById("category-all").addEventListener("click", function() {
+            filterProducts("all");
+        });
+
+        document.getElementById("category-gaming").addEventListener("click", function() {
+            filterProducts("gaming");
+        });
+
+        document.getElementById("category-clothing").addEventListener("click", function() {
+            filterProducts("clothing");
+        });
+
+        function sortProducts(option) {
+            const productLinks = document.querySelectorAll(".products a");
+            const productsArray = Array.from(productLinks);
+
+            switch (option) {
+                case "low-to-high":
+                    productsArray.sort(function(a, b) {
+                        const priceA = parseFloat(a.querySelector("p").innerText.split("$")[1]);
+                        const priceB = parseFloat(b.querySelector("p").innerText.split("$")[1]);
+                        return priceA - priceB;
+                    });
+                    break;
+                case "high-to-low":
+                    productsArray.sort(function(a, b) {
+                        const priceA = parseFloat(a.querySelector("p").innerText.split("$")[1]);
+                        const priceB = parseFloat(b.querySelector("p").innerText.split("$")[1]);
+                        return priceB - priceA;
+                    });
+                    break;
+            }
+
+            const productsSection = document.querySelector(".products");
+            productsSection.innerHTML = '';
+            productsArray.forEach(function(productLink) {
+                productsSection.appendChild(productLink);
+            });
+
+            document.getElementById("filters-dropdown").classList.remove("active");
+        }
+
+        function filterProducts(category) {
+            const productLinks = document.querySelectorAll(".products a");
+            productLinks.forEach(function(link) {
+                const product = link.querySelector(".product");
+                const productCategory = product.getAttribute("data-category");
+
+                if (category === "all" || productCategory === category) {
+                    link.style.display = "block";
+                } else {
+                    link.style.display = "none";
+                }
+            });
+
+            document.getElementById("categories-dropdown").classList.remove("active");
+        }
+    </script>
+</body>
+</html>
